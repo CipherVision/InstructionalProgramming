@@ -11,16 +11,15 @@
     
       
       <item>
-        <title>Welcome to Instructional Parenting!</title>
+        <title>How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling</title>
         
-          <description>&lt;p&gt;Parenting can be a challenging task.&lt;/p&gt;
-&lt;p&gt;There are so many things to consider and so many ways to go wrong that it can be difficult to know where to begin. But don’t be anxious; you’re not alone. This parenting blog will provide you with advice, tips, and methods from other parents who have walked in your shoes. We’ll cover topics ranging from how to handle temper tantrums to how to convince your kids to eat their vegetables. We’ll also discuss the various stages of development, from infancy to adolescence and everything in between.&lt;/p&gt;
+          <description>&lt;p&gt;Python is one of the &lt;a href=&quot;https://www.jetbrains.com/lp/devecosystem-2021/&quot;&gt;fastest-growing programming languages of 2021&lt;/a&gt;, and it’s no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts outside the local system, i.e. cron tasks; I’ve yet to come across a cloud-based solution that makes the deployment and management of Python scripts an easy process.&lt;/p&gt;
 
 </description>
         
-        <webfeeds:cover image="http://localhost:4000/assets/images/welcome.jpg" />
+        <webfeeds:cover image="http://localhost:4000/assets/uploads/new-project.jpg" />
         <webfeeds:icon>http://localhost:4000/favicon.ico</webfeeds:icon>
-        <pubDate>Fri, 07 Jan 2022 00:00:00 -0600</pubDate>
+        <pubDate>Wed, 06 Apr 2022 00:00:00 -0500</pubDate>
         <link>
         http://localhost:4000/welcome</link>
         <guid isPermaLink="true">http://localhost:4000/welcome</guid>

@@ -42,3 +42,14 @@ adam:
   facebook: False
   twitter: False
   cover: assets/images/adam-cover.jpg
+jeremiah:
+  username: jeremiah
+  name: Jeremiah Harvey
+  location: Fair Grove, Missouri
+  url_full: False
+  url: False
+  bio: Still working on a good bio for myself!
+  picture: assets/images/jeremiah.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/amy-cover.jpg
