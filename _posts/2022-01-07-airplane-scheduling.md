@@ -26,7 +26,7 @@ You can read more about Airplane and its use-cases [here]().
 
 In today's guide, we'll be covering the following topics:
 
-* Setting up a PostgreSQL database
+* <a href="#setting-up-postgresql">Setting up a PostgreSQL database</a>
 * Setting up a task in Airplane
 * Pushing PostgreSQL data to Airtable
 * Deploying code to Airplane via Airplane’s CLI
@@ -36,7 +36,7 @@ To summarize, we will be creating a Python script that checks a PostgreSQL datab
 
 Let’s get started!
 
-## Setting up a PostgreSQL database with Supabase
+<h2 id="setting-up-postgresql">Setting up a PostgreSQL database with Supabase</h2>
 
 For those unfamiliar, Supabase is an open-source Firebase alternative. What this means is you can create an entire backend with ease, including a PostgreSQL database, authentication, APIs, real-time subscriptions and more. They offer a free-tier, which we will be using today.
 
@@ -99,11 +99,11 @@ Great job! Now that we’ve put together the project files, we can push the scri
 
 ## Scheduling a recurring task in Airplane
 
-Now that we’ve deployed our script to Airplane’s task, we can now assign a schedule to run the task at a specific interval. For simplicity, we’ll assign a daily schedule:
+Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:
 
 The fact that you have the option to specify the interval in UNIX cron format is also a plus.
 
-For your reference, the following is the completed code repository containing the relevant project files:
+For your reference, the following is the completed code repository containing all relevant project files:
 
 Airplane does an excellent job at managing and deploying Python scripts to the cloud, and it takes less than 5 minutes to be up and running. For a more in-depth look at Airplane’s capabilities, please take a look at their [official quick-start guide](https://docs.airplane.dev/getting-started/quickstart-guide).
 
