@@ -35,5 +35,3 @@ fields:
 - type: text
   name: author
   label: author
-pages:
-- _posts/2022-01-07-welcome.md

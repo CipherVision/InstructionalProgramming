@@ -4,7 +4,7 @@ current: post
 cover: "/assets/uploads/new-project.jpg"
 navigation: true
 title: How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling
-date: 2022-04-06 05:00:00 +0000
+date: 2022-04-06T05:00:00.000+00:00
 tags:
 - featured
 frontpagepost: true
@@ -40,13 +40,12 @@ Let’s get started!
 
 For those unfamiliar, Supabase is an open-source Firebase alternative. What this means is you can create an entire backend with ease, including a PostgreSQL database, authentication, APIs, real-time subscriptions and more. They offer a free-tier, which we will be using today.
 
-Let’s navigate to Supabase and register for an account:
+Provided below is a brief how-to on getting started with a PostgreSQL database in Supabase:
 
-Once registered, click **New Project** and fill out the required information.
-
-From here, we’ll navigate to the table editor so we can add in data to work with.
-
-Next, we’ll navigate over to the project settings and obtain the credentials of the PostgreSQL database:
+1. Navigate to Supabase and [register for an account](https://app.supabase.io).
+2. Once registered, click **New Project** and fill out the required information.
+3. Navigate to the table editor and input dummy data relevant to this guide.
+4. Navigate to the project settings and obtain the credentials of the PostgreSQL database
 
 ## Setting up a task in Airplane
 
@@ -69,6 +68,12 @@ Now, let’s download the task’s project file mentioned:
 Now that we have the project file downloaded, we can get started. First, we’ll need to obtain an API token from Airtable:
 
 Going back to our script, let’s install the **airtable** package — this makes communicating with Airtable’s API a breeze:
+
+    pip install airtable
+
+Since **airtable** utilizes the **requests** package, we'll need to install this as well:
+
+    pip install requests
 
 Now, we’ll add the main logic to our script (comments included):
 
