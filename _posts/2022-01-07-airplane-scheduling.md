@@ -42,7 +42,7 @@ For those unfamiliar, Supabase is an open-source Firebase alternative. What this
 
 Provided below is a brief how-to on getting started with a PostgreSQL database in Supabase:
 
-1. Navigate to Supabase and [register for an account](https://app.supabase.io).
+1. Navigate to Supabase and [connect your GitHub account](https://app.supabase.io).
 2. Once registered, click **New Project** and fill out the required information.
 3. Navigate to the table editor and input dummy data relevant to this guide.
 4. Navigate to the project settings and obtain the credentials of the PostgreSQL database for use in our script later.
