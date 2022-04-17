@@ -13,9 +13,10 @@ subclass: post
 author: jeremiah
 
 ---
-Python is one of the [fastest-growing programming languages of 2021](https://www.jetbrains.com/lp/devecosystem-2021/), and it’s no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts outside the local system, i.e. cron tasks; I’ve yet to come across a cloud-based solution that makes the deployment and management of Python scripts an easy process.
+<p>Python is one of the <a href="https://www.jetbrains.com/lp/devecosystem-2021/">fastest-growing programming languages of 2021</a>, and it's no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. </p>One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts outside the local system, i.e. cron tasks; I’ve yet to come across a cloud-based solution that makes the deployment and management of Python scripts an easy process.
 
-That is, until now:  
+That is, until now:
+
 ![](/assets/uploads/airplane-cover.png)  
 [Airplane](https://www.airplane.dev) is a platform that allows engineers to quickly create internal tools to power recurring workflows within their organization.
 
