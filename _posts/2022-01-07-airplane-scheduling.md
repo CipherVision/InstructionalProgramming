@@ -45,11 +45,11 @@ Provided below is a brief how-to on getting started with a PostgreSQL database i
 1. Navigate to Supabase and [register for an account](https://app.supabase.io).
 2. Once registered, click **New Project** and fill out the required information.
 3. Navigate to the table editor and input dummy data relevant to this guide.
-4. Navigate to the project settings and obtain the credentials of the PostgreSQL database
+4. Navigate to the project settings and obtain the credentials of the PostgreSQL database for use in our script later.
 
 ## Setting up a task in Airplane
 
-To get started, you’ll need to register for an account, if you haven’t already: this can be a Google account, GitHub account or just regular email.
+To get started, you’ll need to [register for an account](https://app.airplane.dev/signup), if you haven’t already: this can be either a Google account, or email.
 
 Now that we have access to the dashboard, we’ll go ahead and click **Create Task** → **Task**
 
@@ -65,21 +65,33 @@ Now, let’s download the task’s project file mentioned:
 
 ## Pushing PostgreSQL data to Airtable
 
-Now that we have the project file downloaded, we can get started. First, we’ll need to obtain an API token from Airtable:
-
-Going back to our script, let’s install the **airtable** package — this makes communicating with Airtable’s API a breeze:
+Now that we have the project file downloaded, we can get started. First, we'll need to install a few different Python packages:
 
     pip install airtable
-
-Since **airtable** utilizes the **requests** package, we'll need to install this as well:
-
     pip install requests
+    pip install psycopg2-binary
 
-Now, we’ll add the main logic to our script (comments included):
+A quick overview:
+
+* **airtable** — this package makes communicating with Airtable's API a breeze.
+* **requests** — this package is necessary in order for the **airtable** package to work properly.
+* **psycopg2-binary** — this package is essential to connect to our PostgreSQL database.
+
+Now, we’ll need to obtain an API token from Airtable:
+
+1. Navigate to your [account settings](https://airtable.com/account).
+2. Click **Generate API Key**.
+3. Save this API key for use in our script.
+
+Let's add the main logic to our script (comments included):
 
 \# more details here
 
-Our last step before moving on to deployment is to specify the requirements.txt file in the root of the project folder. This text file needs to contain all relevant Python packages Airplane should install before running the script. In our case, the text file will only contain one line:
+Our last step before moving on to deployment is to specify the **requirements.txt** file in the root of the project folder. This text file needs to contain all relevant Python packages Airplane should install before running the script. In our case, the text file will look like this:
+
+    airtable
+    requests
+    psycopg2-binary
 
 ## Deploying code to Airplane via Airplane’s CLI
 
