@@ -27,10 +27,10 @@ You can read more about Airplane and its use-cases [here]().
 In today's guide, we'll be covering the following topics:
 
 * <a href="#setting-up-postgresql">Setting up a PostgreSQL database</a>
-* Setting up a task in Airplane
-* Pushing PostgreSQL data to Airtable
-* Deploying code to Airplane via Airplane’s CLI
-* Scheduling a recurring task in Airplane
+* <a href="#setting-up-a-task">Setting up a task in Airplane</a>
+* <a href="#pushing-to-postgresql">Pushing PostgreSQL data to Airtable</a>
+* <a href="#deploying-to-airplane">Deploying code to Airplane via Airplane’s CLI</a>
+* <a href="#scheduling-a-task">Scheduling a recurring task in Airplane</a>
 
 To summarize, we will be creating a Python script that checks a PostgreSQL database for newly-added users and outputs those entries into Airtable; this script will be uploaded to Airplane and then triggered periodically with the help of Airplane’s task-scheduling.
 
@@ -47,7 +47,7 @@ Provided below is a brief how-to on getting started with a PostgreSQL database i
 3. Navigate to the table editor and input dummy data relevant to this guide.
 4. Navigate to the project settings and obtain the credentials of the PostgreSQL database for use in our script later.
 
-## Setting up a task in Airplane
+<h2 id="setting-up-a-task">Setting up a task in Airplane</h2>
 
 To get started, you’ll need to [register for an account](https://app.airplane.dev/signup), if you haven’t already: this can be either a Google account, or email.
 
@@ -63,7 +63,7 @@ After the CLI has been downloaded, we’ll need to authenticate our account:
 
 Now, let’s download the task’s project file mentioned:
 
-## Pushing PostgreSQL data to Airtable
+<h2 id="pushing-to-postgresql">Pushing PostgreSQL data to Airtable</h2>
 
 Now that we have the project file downloaded, we can get started. First, we'll need to install a few different Python packages:
 
@@ -93,11 +93,11 @@ Our last step before moving on to deployment is to specify the **requirements.tx
     requests
     psycopg2-binary
 
-## Deploying code to Airplane via Airplane’s CLI
+<h2 id="deploying-to-airplane">Deploying code to Airplane via Airplane’s CLI</h2>
 
 Great job! Now that we’ve put together the project files, we can push the script to Airplane via Airplane’s CLI:
 
-## Scheduling a recurring task in Airplane
+<h2 id="scheduling-a-task">Scheduling a recurring task in Airplane</h2>
 
 Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:
 
