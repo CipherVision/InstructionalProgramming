@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/tag/featured/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2022-04-17T01:33:55-05:00</updated>
+  <updated>2022-04-17T01:42:13-05:00</updated>
   <id>http://localhost:4000/tag/featured/feed.xml</id>
 
   
@@ -44,12 +44,12 @@
   
     <entry>
       <title type="html">How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling</title>
-      <link href="http://localhost:4000/welcome" rel="alternate" type="text/html" title="How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling" />
+      <link href="http://localhost:4000/airplane-scheduling" rel="alternate" type="text/html" title="How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling" />
       <webfeeds:cover image="http://localhost:4000/assets/uploads/new-project.jpg" />
       <published>2022-04-06T00:00:00-05:00</published>
       <updated>2022-04-06T00:00:00-05:00</updated>
-      <id>http://localhost:4000/welcome</id>
-      <content type="html" xml:base="http://localhost:4000/welcome">&lt;p&gt;Python is one of the &lt;a href=&quot;https://www.jetbrains.com/lp/devecosystem-2021/&quot;&gt;fastest-growing programming languages of 2021&lt;/a&gt;, and it’s no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts outside the local system, i.e. cron tasks; I’ve yet to come across a cloud-based solution that makes the deployment and management of Python scripts an easy process.&lt;/p&gt;
+      <id>http://localhost:4000/airplane-scheduling</id>
+      <content type="html" xml:base="http://localhost:4000/airplane-scheduling">&lt;p&gt;Python is one of the &lt;a href=&quot;https://www.jetbrains.com/lp/devecosystem-2021/&quot;&gt;fastest-growing programming languages of 2021&lt;/a&gt;, and it’s no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts outside the local system, i.e. cron tasks; I’ve yet to come across a cloud-based solution that makes the deployment and management of Python scripts an easy process.&lt;/p&gt;
 
 &lt;p&gt;That is, until now:&lt;br /&gt;
 &lt;img src=&quot;/assets/uploads/airplane-cover.png&quot; alt=&quot;&quot; /&gt;&lt;br /&gt;
