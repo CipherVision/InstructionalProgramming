@@ -1,0 +1,44 @@
+jon:
+  username: jon
+  name: Jon Liu
+  location: Fremont, California
+  url_full: False
+  url: False
+  bio: Jon cherishes his time with his wife and two young children. He enjoys traveling and discovering new locations with his family. He is a hands-on father who enjoys playing with and teaching his children new skills.
+  picture: assets/images/jon.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/jon-cover.jpg
+mary:
+  username: mary
+  name: Mary Anderson
+  location: St. Louis, Missouri
+  url_full: False
+  url: False
+  bio: Mary is a stay-at-home mother who cherishes her time with her daughter and spouse. She has a passion for writing, and frequently posts snippets of her work online. She enjoys hiking and camping with her family in her spare time.
+  picture: assets/images/mary.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/mary-cover.jpg
+amy:
+  username: amy
+  name: Amy Miller
+  location: Portland, Oregon
+  url_full: False
+  url: False
+  bio: Amy is a wife and mother of three boys. One of her favorite pastimes is photography, and she enjoys documenting moments with her boys. Amy also likes to spend time with her family and friends, read, bake, and go on walks.
+  picture: assets/images/amy.jpg
+  facebook: False
+  twitter: False
+  cover: assets/images/amy-cover.jpg
+adam:
+  username: adam
+  name: Adam Walker
+  location: Los Angeles, California
+  url_full: False
+  url: False
+  bio: Adam enjoys spending time with his baby boy and treasures the memories they make together. He finds peace in the process of writing, which he appreciates as a form of creative expression. He is a loving father and husband who is striving to provide a meaningful life for his family.
+  picture: assets/images/adam.jpeg
+  facebook: False
+  twitter: False
+  cover: assets/images/adam-cover.jpg

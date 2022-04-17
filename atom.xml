@@ -1,0 +1,34 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds=”http://webfeeds.org/rss/1.0″>
+  <channel>
+    <title>{{ site.name | xml_escape }} - Articles</title>
+    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
+    <link>
+    {{ site.url }}</link>
+    {% capture now %}{{'now' | date: '%s' | plus: 0 }}{% endcapture %}
+    {% for post in site.posts %}
+    {% capture date %}{{post.date | date: '%s' | plus: 0 }}{% endcapture %}
+    {% if date < now %}
+      {% unless post.link %}
+      <item>
+        <title>{{ post.title | xml_escape }}</title>
+        {% if post.excerpt %}
+          <description>{{ post.excerpt | xml_escape }}</description>
+        {% else %}
+          <description>{{ post.content | xml_escape }}</description>
+        {% endif %}
+        <webfeeds:cover image="{{ post.cover | absolute_url | xml_escape }}" />
+        <webfeeds:icon>{{ site.url }}/favicon.ico</webfeeds:icon>
+        <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+        <link>
+        {{ site.url }}{{ post.url }}</link>
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+      </item>
+      {% endunless %}
+    {% endif %}
+    {% endfor %}
+  </channel>
+</rss>

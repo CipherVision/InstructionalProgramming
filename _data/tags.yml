@@ -1,0 +1,20 @@
+featured:
+  name: featured
+  description: Hand-picked content we know you'll love!
+  cover: assets/images/featured.jpg
+family:
+  name: family
+  description: False
+  cover: False
+baby:
+  name: baby
+  description: False
+  cover: False
+youth:
+  name: youth
+  description: False
+  cover: False
+life:
+  name: life
+  description: False
+  cover: False

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:webfeeds=”http://webfeeds.org/rss/1.0″>
+  <channel>
+    <title> - Articles</title>
+    <description>Your go-to for daily programming advice!</description>
+    <link>
+    http://localhost:4000</link>
+    
+    
+    
+    
+      
+      <item>
+        <title>Welcome to Instructional Parenting!</title>
+        
+          <description>&lt;p&gt;Parenting can be a challenging task.&lt;/p&gt;
+&lt;p&gt;There are so many things to consider and so many ways to go wrong that it can be difficult to know where to begin. But don’t be anxious; you’re not alone. This parenting blog will provide you with advice, tips, and methods from other parents who have walked in your shoes. We’ll cover topics ranging from how to handle temper tantrums to how to convince your kids to eat their vegetables. We’ll also discuss the various stages of development, from infancy to adolescence and everything in between.&lt;/p&gt;
+
+</description>
+        
+        <webfeeds:cover image="http://localhost:4000/assets/images/welcome.jpg" />
+        <webfeeds:icon>http://localhost:4000/favicon.ico</webfeeds:icon>
+        <pubDate>Fri, 07 Jan 2022 00:00:00 -0600</pubDate>
+        <link>
+        http://localhost:4000/welcome</link>
+        <guid isPermaLink="true">http://localhost:4000/welcome</guid>
+      </item>
+      
+    
+    
+  </channel>
+</rss>

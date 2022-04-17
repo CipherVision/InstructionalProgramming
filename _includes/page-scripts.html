@@ -1,0 +1,15 @@
+<!-- highlight.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("pre code").each(function (i, block) {
+      hljs.highlightBlock(block);
+    });
+  });
+</script>
+<script>
+  $(function () {
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+  });
+</script>
