@@ -111,9 +111,9 @@ You'll want to make sure the schema of the table matches that of the database yo
 
 ![](/assets/uploads/airtable.png)
 
-As you can see here, along with the schema, I've added another column into Airtable, **synced_at**, which will be used to track when we have last synced our data — I'll get more into this in a moment.
+As you can see here, along with the schema, I've added another column into Airtable, **synced_at**, which will be used to track when we've last synced our data — this is further explained in code comments.
 
-Provided below is the completed Python script, with a glorious amount of verbosity:
+Provided below is the complete Python script with a glorious amount of verbosity:
 
     # Import the necessary packages.
     from datetime import datetime
