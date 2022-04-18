@@ -7,9 +7,12 @@ import psycopg2
 at_token = "..."
 at_base_id = "..."
 at_table_id = "..."
-at_date_format = '%Y-%m-%dT%H:%M:%S.000Z'  # Airtable's static date format.
 
-at = airtable.Airtable(at_base_id, at_token)  # Initialize the Airtable client.
+# Airtable's static date format.
+at_date_format = '%Y-%m-%dT%H:%M:%S.000Z'
+
+# Initialize the Airtable client.
+at = airtable.Airtable(at_base_id, at_token)
 
 # Prepare query data to be parsed by Airtable
 def transform_data(e):
