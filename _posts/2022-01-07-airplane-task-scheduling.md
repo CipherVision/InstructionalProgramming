@@ -57,9 +57,9 @@ Once you're presented with the dashboard, we’ll go ahead and create our first 
 
 Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you also have the ability to load entire Docker images for maximum usability.
 
-In our case, we will be using **Python**.
+In our case, we'll be using **Python**.
 
-![](/assets/uploads/define-task.png)
+![](/assets/uploads/task-creation.png)
 
 We'll need to give our task a name, so anything will do here! After, click **Continue** → **Create Task**
 
