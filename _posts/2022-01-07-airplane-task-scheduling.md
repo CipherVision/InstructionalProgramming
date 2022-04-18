@@ -51,7 +51,7 @@ Provided below is a brief how-to on getting started with a PostgreSQL database i
 
 To get started, you’ll need to make sure you've [registered for an account](https://app.airplane.dev/signup), if you haven’t already.
 
-Once you're to the dashboard, we’ll go ahead and create our first task by clicking **Library** → **New Task**
+Once you're presented with the dashboard, we’ll go ahead and create our first task by clicking **Library** → **New Task**
 
 ![](/assets/uploads/new-task.png)
 
@@ -79,9 +79,9 @@ From here, you’re instructed on how to download Airplane’s CLI and the task'
     curl -L https://github.com/airplanedev/cli/releases/latest/download/install.sh | sh
     airplane login
 
-After the CLI has been downloaded, we’ll need to authenticate our account:
+After the CLI has been downloaded, follow the prompts to authenticate your account.
 
-Now, let’s download the task’s project file mentioned:
+Once done, we'll download the task’s project file mentioned:
 
 <h2 id="pushing-to-postgresql">Pushing PostgreSQL data to Airtable</h2>
 
