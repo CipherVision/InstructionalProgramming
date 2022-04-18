@@ -225,19 +225,45 @@ into the {body} of the default.hbs template -->
 
 <h2 id="setting-up-a-task">Setting up a task in Airplane</h2>
 
-<p>To get started, you’ll need to <a href="https://app.airplane.dev/signup">register for an account</a>, if you haven’t already: this can be either a Google account, or email.</p>
+<p>To get started, you’ll need to make sure you’ve <a href="https://app.airplane.dev/signup">registered for an account</a>, if you haven’t already.</p>
 
-<p>Now that we have access to the dashboard, we’ll go ahead and click <strong>Create Task</strong> → <strong>Task</strong></p>
+<p>Once you’re presented with the dashboard, we’ll go ahead and create our first task by clicking <strong>Library</strong> → <strong>New Task</strong></p>
 
-<p>Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you have the ability to load entire Docker images for maximum usability.</p>
+<p><img src="/assets/uploads/new-task.png" alt="" /></p>
 
-<p>In our case, we will be using <strong>Python</strong>.</p>
+<p>Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you also have the ability to load entire Docker images for maximum usability.</p>
 
-<p>From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or Command Prompt, depending on your OS):</p>
+<p>In our case, we’ll be using <strong>Python</strong>.</p>
 
-<p>After the CLI has been downloaded, we’ll need to authenticate our account:</p>
+<p><img src="/assets/uploads/task-creation.png" alt="" /></p>
 
-<p>Now, let’s download the task’s project file mentioned:</p>
+<p>We’ll need to give our task a name, so anything will do here! After, click <strong>Continue</strong> → <strong>Create Task</strong></p>
+
+<p><img src="/assets/uploads/init-task.png" alt="" /></p>
+
+<p>From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or PowerShell, depending on your OS):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>** macOS **
+brew install airplanedev/tap/airplane
+airplane login
+
+** Windows **
+iwr https://github.com/airplanedev/cli/releases/latest/download/install.ps1 -useb | iex
+airplane login
+
+** Linux **
+curl -L https://github.com/airplanedev/cli/releases/latest/download/install.sh | sh
+airplane login
+</code></pre></div></div>
+
+<p>After the CLI has been downloaded, follow the prompts to authenticate your account.</p>
+
+<p>Once completed, we can then initialize the task’s project files mentioned:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>airplane init --from=postgresql_to_airtable postgresql_to_airtable.task.yaml
+</code></pre></div></div>
+
+<p>Keep in mind, each task will have a slightly different setup of commands (depending on the task’s name).</p>
 
 <h2 id="pushing-to-postgresql">Pushing PostgreSQL data to Airtable</h2>
 
@@ -252,7 +278,7 @@ pip install psycopg2-binary
 
 <ul>
   <li><strong>airtable</strong> — this package makes communicating with Airtable’s API a breeze.</li>
-  <li><strong>requests</strong> — this package is necessary in order for the <strong>airtable</strong> package to work properly.</li>
+  <li><strong>requests</strong> — this package is necessary for the <strong>airtable</strong> package to work properly.</li>
   <li><strong>psycopg2-binary</strong> — this package is essential to connect to our PostgreSQL database.</li>
 </ul>
 
@@ -263,6 +289,12 @@ pip install psycopg2-binary
   <li>Click <strong>Generate API Key</strong>.</li>
   <li>Save this API key for use in our script.</li>
 </ol>
+
+<p>You’ll want to make sure the schema of the table matches that of the database you’re retrieving data from — this is considered an essential step so we can seamlessly push data to Airtable.</p>
+
+<p><img src="/assets/uploads/airtable.png" alt="" /></p>
+
+<p>As you can see here, along with the schema, I’ve added another column into Airtable, <strong>synced_at</strong>, which will be used to track when we have last synced our data — I’ll get more into this in a moment.</p>
 
 <p>Let’s add the main logic to our script (comments included):</p>
 
@@ -277,17 +309,28 @@ psycopg2-binary
 
 <h2 id="deploying-to-airplane">Deploying code to Airplane via Airplane’s CLI</h2>
 
-<p>Great job! Now that we’ve put together the project files, we can push the script to Airplane via Airplane’s CLI:</p>
+<p>Great job! Now that we’ve put together the project files, we can push the task’s code to Airplane via Airplane’s CLI:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>airplane deploy postgresql_to_airtable.task.yaml
+</code></pre></div></div>
 
 <h2 id="scheduling-a-task">Scheduling a recurring task in Airplane</h2>
 
-<p>Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:</p>
+<p>Now that we’ve deployed our task’s code to Airplane, we can assign a schedule to run the task at a specific interval. Navigate back to the task in Airplane and click <strong>New schedule</strong>.</p>
 
-<p>The fact that you have the option to specify the interval in UNIX cron format is also a plus.</p>
+<p><img src="/assets/uploads/scheduling.png" alt="" /></p>
+
+<p>For simplicity, we’ll choose <em>every <strong>hour</strong> at <strong>0 minutes</strong> past the hour</em>.</p>
+
+<p>The fact that you have the option to specify an interval in cron syntax is also a plus.</p>
+
+<p>Next, click <strong>Create schedule</strong>, and we’re done!</p>
 
 <p>For your reference, the following is the completed code repository containing all relevant project files:</p>
 
 <p>Airplane does an excellent job at managing and deploying Python scripts to the cloud, and it takes less than 5 minutes to be up and running. For a more in-depth look at Airplane’s capabilities, please take a look at their <a href="https://docs.airplane.dev/getting-started/quickstart-guide">official quick-start guide</a>.</p>
+
+<p><img src="/assets/uploads/giphy.gif" alt="" /></p>
 
 <p>Thanks for reading! We’ll see you next time.</p>
 
