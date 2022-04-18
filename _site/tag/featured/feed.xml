@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="http://localhost:4000/tag/featured/feed.xml" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2022-04-17T23:38:36-05:00</updated>
+  <updated>2022-04-18T02:08:55-05:00</updated>
   <id>http://localhost:4000/tag/featured/feed.xml</id>
 
   
@@ -90,19 +90,45 @@
 
 &lt;h2 id=&quot;setting-up-a-task&quot;&gt;Setting up a task in Airplane&lt;/h2&gt;
 
-&lt;p&gt;To get started, you’ll need to &lt;a href=&quot;https://app.airplane.dev/signup&quot;&gt;register for an account&lt;/a&gt;, if you haven’t already: this can be either a Google account, or email.&lt;/p&gt;
+&lt;p&gt;To get started, you’ll need to make sure you’ve &lt;a href=&quot;https://app.airplane.dev/signup&quot;&gt;registered for an account&lt;/a&gt;, if you haven’t already.&lt;/p&gt;
 
-&lt;p&gt;Now that we have access to the dashboard, we’ll go ahead and click &lt;strong&gt;Create Task&lt;/strong&gt; → &lt;strong&gt;Task&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Once you’re presented with the dashboard, we’ll go ahead and create our first task by clicking &lt;strong&gt;Library&lt;/strong&gt; → &lt;strong&gt;New Task&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you have the ability to load entire Docker images for maximum usability.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/uploads/new-task.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;In our case, we will be using &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you also have the ability to load entire Docker images for maximum usability.&lt;/p&gt;
 
-&lt;p&gt;From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or Command Prompt, depending on your OS):&lt;/p&gt;
+&lt;p&gt;In our case, we’ll be using &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;After the CLI has been downloaded, we’ll need to authenticate our account:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/uploads/task-creation.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Now, let’s download the task’s project file mentioned:&lt;/p&gt;
+&lt;p&gt;We’ll need to give our task a name, so anything will do here! After, click &lt;strong&gt;Continue&lt;/strong&gt; → &lt;strong&gt;Create Task&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/uploads/init-task.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or PowerShell, depending on your OS):&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;** macOS **
+brew install airplanedev/tap/airplane
+airplane login
+
+** Windows **
+iwr https://github.com/airplanedev/cli/releases/latest/download/install.ps1 -useb | iex
+airplane login
+
+** Linux **
+curl -L https://github.com/airplanedev/cli/releases/latest/download/install.sh | sh
+airplane login
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After the CLI has been downloaded, follow the prompts to authenticate your account.&lt;/p&gt;
+
+&lt;p&gt;Once completed, we can then initialize the task’s project files mentioned:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;airplane init --from=postgresql_to_airtable postgresql_to_airtable.task.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Keep in mind, each task will have a slightly different setup of commands (depending on the task’s name).&lt;/p&gt;
 
 &lt;h2 id=&quot;pushing-to-postgresql&quot;&gt;Pushing PostgreSQL data to Airtable&lt;/h2&gt;
 
@@ -117,7 +143,7 @@ pip install psycopg2-binary
 
 &lt;ul&gt;
   &lt;li&gt;&lt;strong&gt;airtable&lt;/strong&gt; — this package makes communicating with Airtable’s API a breeze.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;requests&lt;/strong&gt; — this package is necessary in order for the &lt;strong&gt;airtable&lt;/strong&gt; package to work properly.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;requests&lt;/strong&gt; — this package is necessary for the &lt;strong&gt;airtable&lt;/strong&gt; package to work properly.&lt;/li&gt;
   &lt;li&gt;&lt;strong&gt;psycopg2-binary&lt;/strong&gt; — this package is essential to connect to our PostgreSQL database.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -128,6 +154,12 @@ pip install psycopg2-binary
   &lt;li&gt;Click &lt;strong&gt;Generate API Key&lt;/strong&gt;.&lt;/li&gt;
   &lt;li&gt;Save this API key for use in our script.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;You’ll want to make sure the schema of the table matches that of the database you’re retrieving data from — this is considered an essential step so we can seamlessly push data to Airtable.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/uploads/airtable.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see here, along with the schema, I’ve added another column into Airtable, &lt;strong&gt;synced_at&lt;/strong&gt;, which will be used to track when we have last synced our data — I’ll get more into this in a moment.&lt;/p&gt;
 
 &lt;p&gt;Let’s add the main logic to our script (comments included):&lt;/p&gt;
 
@@ -142,17 +174,28 @@ psycopg2-binary
 
 &lt;h2 id=&quot;deploying-to-airplane&quot;&gt;Deploying code to Airplane via Airplane’s CLI&lt;/h2&gt;
 
-&lt;p&gt;Great job! Now that we’ve put together the project files, we can push the script to Airplane via Airplane’s CLI:&lt;/p&gt;
+&lt;p&gt;Great job! Now that we’ve put together the project files, we can push the task’s code to Airplane via Airplane’s CLI:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;airplane deploy postgresql_to_airtable.task.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;scheduling-a-task&quot;&gt;Scheduling a recurring task in Airplane&lt;/h2&gt;
 
-&lt;p&gt;Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:&lt;/p&gt;
+&lt;p&gt;Now that we’ve deployed our task’s code to Airplane, we can assign a schedule to run the task at a specific interval. Navigate back to the task in Airplane and click &lt;strong&gt;New schedule&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;The fact that you have the option to specify the interval in UNIX cron format is also a plus.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/uploads/scheduling.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For simplicity, we’ll choose &lt;em&gt;every &lt;strong&gt;hour&lt;/strong&gt; at &lt;strong&gt;0 minutes&lt;/strong&gt; past the hour&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;The fact that you have the option to specify an interval in cron syntax is also a plus.&lt;/p&gt;
+
+&lt;p&gt;Next, click &lt;strong&gt;Create schedule&lt;/strong&gt;, and we’re done!&lt;/p&gt;
 
 &lt;p&gt;For your reference, the following is the completed code repository containing all relevant project files:&lt;/p&gt;
 
 &lt;p&gt;Airplane does an excellent job at managing and deploying Python scripts to the cloud, and it takes less than 5 minutes to be up and running. For a more in-depth look at Airplane’s capabilities, please take a look at their &lt;a href=&quot;https://docs.airplane.dev/getting-started/quickstart-guide&quot;&gt;official quick-start guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/uploads/giphy.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Thanks for reading! We’ll see you next time.&lt;/p&gt;</content>
 

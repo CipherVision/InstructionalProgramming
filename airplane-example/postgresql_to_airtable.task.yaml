@@ -1,0 +1,5 @@
+name: PostgreSQL to Airtable
+slug: postgresql_to_airtable
+python:
+  entrypoint: postgresql_to_airtable.py
+timeout: 3600
