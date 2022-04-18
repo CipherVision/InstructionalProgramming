@@ -49,15 +49,35 @@ Provided below is a brief how-to on getting started with a PostgreSQL database i
 
 <h2 id="setting-up-a-task">Setting up a task in Airplane</h2>
 
-To get started, you’ll need to [register for an account](https://app.airplane.dev/signup), if you haven’t already: this can be either a Google account, or email.
+To get started, you’ll need to make sure you've [registered for an account](https://app.airplane.dev/signup), if you haven’t already.
 
-Now that we have access to the dashboard, we’ll go ahead and click **Create Task** → **Task**
+Once you're to the dashboard, we’ll go ahead and create our first task by clicking **Library** → **New Task**
 
-Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you have the ability to load entire Docker images for maximum usability.
+![](/assets/uploads/new-task.png)
+
+Airplane supports a few different languages out-of-the-box — if these happen to not fit your use-case, you also have the ability to load entire Docker images for maximum usability.
 
 In our case, we will be using **Python**.
 
-From here, you’re instructed on how to download Airplane’s CLI and the task's project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or Command Prompt, depending on your OS):
+![](/assets/uploads/define-task.png)
+
+We'll need to give our task a name, so anything will do here! After, click **Continue** → **Create Task**
+
+![](/assets/uploads/init-task.png)
+
+From here, you’re instructed on how to download Airplane’s CLI and the task's project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or PowerShell, depending on your OS):
+
+    ** macOS **
+    brew install airplanedev/tap/airplane
+    airplane login
+
+    ** Windows **
+    iwr https://github.com/airplanedev/cli/releases/latest/download/install.ps1 -useb | iex
+    airplane login
+
+    ** Linux **
+    curl -L https://github.com/airplanedev/cli/releases/latest/download/install.sh | sh
+    airplane login
 
 After the CLI has been downloaded, we’ll need to authenticate our account:
 
@@ -82,6 +102,8 @@ Now, we’ll need to obtain an API token from Airtable:
 1. Navigate to your [account settings](https://airtable.com/account).
 2. Click **Generate API Key**.
 3. Save this API key for use in our script.
+
+ You'll want to make sure the schema of the table matches that of the database you're retrieving from — this is considered an essential step so we can seamlessly push the data.
 
 Let's add the main logic to our script (comments included):
 
