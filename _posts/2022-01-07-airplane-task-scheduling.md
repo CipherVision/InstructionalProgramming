@@ -81,7 +81,11 @@ From here, you’re instructed on how to download Airplane’s CLI and the task'
 
 After the CLI has been downloaded, follow the prompts to authenticate your account.
 
-Once done, we'll download the task’s project file mentioned:
+Once completed, we can then initialize the task’s project files mentioned:
+
+    airplane init --from=postgresql_to_airtable postgresql_to_airtable.task.yaml
+
+Keep in mind, each task will have a slightly different setup of commands (depending on the task's name).
 
 <h2 id="pushing-to-postgresql">Pushing PostgreSQL data to Airtable</h2>
 
@@ -94,7 +98,7 @@ Now that we have the project file downloaded, we can get started. First, we'll n
 A quick overview:
 
 * **airtable** — this package makes communicating with Airtable's API a breeze.
-* **requests** — this package is necessary in order for the **airtable** package to work properly.
+* **requests** — this package is necessary for the **airtable** package to work properly.
 * **psycopg2-binary** — this package is essential to connect to our PostgreSQL database.
 
 Now, we’ll need to obtain an API token from Airtable:
@@ -103,7 +107,7 @@ Now, we’ll need to obtain an API token from Airtable:
 2. Click **Generate API Key**.
 3. Save this API key for use in our script.
 
- You'll want to make sure the schema of the table matches that of the database you're retrieving from — this is considered an essential step so we can seamlessly push the data.
+You'll want to make sure the schema of the table matches that of the database you're retrieving data from — this is considered an essential step so we can seamlessly push data to Airtable.
 
 Let's add the main logic to our script (comments included):
 
@@ -117,16 +121,26 @@ Our last step before moving on to deployment is to specify the **requirements.tx
 
 <h2 id="deploying-to-airplane">Deploying code to Airplane via Airplane’s CLI</h2>
 
-Great job! Now that we’ve put together the project files, we can push the script to Airplane via Airplane’s CLI:
+Great job! Now that we’ve put together the project files, we can push the task's code to Airplane via Airplane’s CLI:
+
+    airplane deploy postgresql_to_airtable.task.yaml
 
 <h2 id="scheduling-a-task">Scheduling a recurring task in Airplane</h2>
 
-Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:
+Now that we’ve deployed our task's code to Airplane, we can assign a schedule to run the task at a specific interval. Navigate back to the task in Airplane and click **New schedule**.
 
-The fact that you have the option to specify the interval in UNIX cron format is also a plus.
+![](/assets/uploads/scheduling.png)
+
+For simplicity, we’ll choose _every **hour** at **0 minutes** past the hour_.
+
+The fact that you have the option to specify an interval in cron syntax is also a plus.
+
+Next, click **Create schedule**, and we're done!
 
 For your reference, the following is the completed code repository containing all relevant project files:
 
 Airplane does an excellent job at managing and deploying Python scripts to the cloud, and it takes less than 5 minutes to be up and running. For a more in-depth look at Airplane’s capabilities, please take a look at their [official quick-start guide](https://docs.airplane.dev/getting-started/quickstart-guide).
+
+![](/assets/uploads/giphy.gif)
 
 Thanks for reading! We'll see you next time.
