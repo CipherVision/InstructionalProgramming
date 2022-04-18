@@ -149,7 +149,7 @@ Provided below is the complete Python script with a glorious amount of verbosity
         # Obtain the last time data was synced by fetching the most recent row's data from Airtable.
         print("Fetching last sync time ...")
         last_sync = sorted(at.get(at_table_id)[
-            "records"], key=lambda x: datetime.strptime(x["fields"]["synced_at"], "%Y-%m-%dT%H:%M:%S.000Z"), reverse=True)
+            "records"], key=lambda x: datetime.strptime(x["fields"]["synced_at"], at_date_format), reverse=True)
     
         # Further transform the variable depending on if data exists in the table or not.
         if len(last_sync) > 0:
