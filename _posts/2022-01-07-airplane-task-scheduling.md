@@ -109,6 +109,10 @@ Now, we’ll need to obtain an API token from Airtable:
 
 You'll want to make sure the schema of the table matches that of the database you're retrieving data from — this is considered an essential step so we can seamlessly push data to Airtable.
 
+![](/assets/uploads/airtable.png)
+
+As you can see here, along with the schema, I've added another column into Airtable, **synced_at**, which will be used to track when we have last synced our data — I'll get more into this in a moment.
+
 Let's add the main logic to our script (comments included):
 
 \# more details here
