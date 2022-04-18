@@ -57,7 +57,7 @@ Airplane supports a few different languages out-of-the-box — if these happen t
 
 In our case, we will be using **Python**.
 
-From here, you’re instructed on how to download Airplane’s CLI and the task's project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI:
+From here, you’re instructed on how to download Airplane’s CLI and the task's project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or Command Prompt, depending on your OS):
 
 After the CLI has been downloaded, we’ll need to authenticate our account:
 
