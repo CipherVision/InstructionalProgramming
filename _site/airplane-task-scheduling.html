@@ -35,7 +35,7 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="Your go-to for daily programming advice!" />
-    <link rel="canonical" href="http://localhost:4000/airplane-scheduling" />
+    <link rel="canonical" href="http://localhost:4000/airplane-task-scheduling" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
@@ -51,7 +51,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling" />
     <meta property="og:description" content="Python is one of the fastest-growing programming languages of 2021, and it's no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts" />
-    <meta property="og:url" content="http://localhost:4000/airplane-scheduling" />
+    <meta property="og:url" content="http://localhost:4000/airplane-task-scheduling" />
     <meta property="og:image" content="http://localhost:4000//assets/uploads/new-project.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/instructionalprogramming" />
     <meta property="article:author" content="https://www.facebook.com/instructionalprogramming" />
@@ -81,7 +81,7 @@
         "name": "Instructional Programming",
         "logo": "http://localhost:4000/assets/images/blog-icon.png"
     },
-    "url": "http://localhost:4000/airplane-scheduling",
+    "url": "http://localhost:4000/airplane-task-scheduling",
     "image": {
         "@type": "ImageObject",
         "url": "http://localhost:4000//assets/uploads/new-project.jpg",
@@ -90,7 +90,7 @@
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "http://localhost:4000/airplane-scheduling"
+        "@id": "http://localhost:4000/airplane-task-scheduling"
     },
     "description": "Python is one of the fastest-growing programming languages of 2021, and it's no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts"
 }
@@ -199,32 +199,33 @@ into the {body} of the default.hbs template -->
 <p>In today’s guide, we’ll be covering the following topics:</p>
 
 <ul>
-  <li>Setting up a PostgreSQL database</li>
-  <li>Setting up a task in Airplane</li>
-  <li>Pushing PostgreSQL data to Airtable</li>
-  <li>Deploying code to Airplane via Airplane’s CLI</li>
-  <li>Scheduling a recurring task in Airplane</li>
+  <li><a href="#setting-up-postgresql">Setting up a PostgreSQL database</a></li>
+  <li><a href="#setting-up-a-task">Setting up a task in Airplane</a></li>
+  <li><a href="#pushing-to-postgresql">Pushing PostgreSQL data to Airtable</a></li>
+  <li><a href="#deploying-to-airplane">Deploying code to Airplane via Airplane’s CLI</a></li>
+  <li><a href="#scheduling-a-task">Scheduling a recurring task in Airplane</a></li>
 </ul>
 
 <p>To summarize, we will be creating a Python script that checks a PostgreSQL database for newly-added users and outputs those entries into Airtable; this script will be uploaded to Airplane and then triggered periodically with the help of Airplane’s task-scheduling.</p>
 
 <p>Let’s get started!</p>
 
-<h2 id="setting-up-a-postgresql-database-with-supabase">Setting up a PostgreSQL database with Supabase</h2>
+<h2 id="setting-up-postgresql">Setting up a PostgreSQL database with Supabase</h2>
 
 <p>For those unfamiliar, Supabase is an open-source Firebase alternative. What this means is you can create an entire backend with ease, including a PostgreSQL database, authentication, APIs, real-time subscriptions and more. They offer a free-tier, which we will be using today.</p>
 
-<p>Let’s navigate to Supabase and register for an account:</p>
+<p>Provided below is a brief how-to on getting started with a PostgreSQL database in Supabase:</p>
 
-<p>Once registered, click <strong>New Project</strong> and fill out the required information.</p>
+<ol>
+  <li>Navigate to Supabase and <a href="https://app.supabase.io">connect your GitHub account</a>.</li>
+  <li>Once registered, click <strong>New Project</strong> and fill out the required information.</li>
+  <li>Navigate to the table editor and input dummy data relevant to this guide.</li>
+  <li>Navigate to the project settings and obtain the credentials of the PostgreSQL database for use in our script later.</li>
+</ol>
 
-<p>From here, we’ll navigate to the table editor so we can add in data to work with.</p>
+<h2 id="setting-up-a-task">Setting up a task in Airplane</h2>
 
-<p>Next, we’ll navigate over to the project settings and obtain the credentials of the PostgreSQL database:</p>
-
-<h2 id="setting-up-a-task-in-airplane">Setting up a task in Airplane</h2>
-
-<p>To get started, you’ll need to register for an account, if you haven’t already: this can be a Google account, GitHub account or just regular email.</p>
+<p>To get started, you’ll need to <a href="https://app.airplane.dev/signup">register for an account</a>, if you haven’t already: this can be either a Google account, or email.</p>
 
 <p>Now that we have access to the dashboard, we’ll go ahead and click <strong>Create Task</strong> → <strong>Task</strong></p>
 
@@ -232,35 +233,59 @@ into the {body} of the default.hbs template -->
 
 <p>In our case, we will be using <strong>Python</strong>.</p>
 
-<p>From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI:</p>
+<p>From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or Command Prompt, depending on your OS):</p>
 
 <p>After the CLI has been downloaded, we’ll need to authenticate our account:</p>
 
 <p>Now, let’s download the task’s project file mentioned:</p>
 
-<h2 id="pushing-postgresql-data-to-airtable">Pushing PostgreSQL data to Airtable</h2>
+<h2 id="pushing-to-postgresql">Pushing PostgreSQL data to Airtable</h2>
 
-<p>Now that we have the project file downloaded, we can get started. First, we’ll need to obtain an API token from Airtable:</p>
+<p>Now that we have the project file downloaded, we can get started. First, we’ll need to install a few different Python packages:</p>
 
-<p>Going back to our script, let’s install the <strong>airtable</strong> package — this makes communicating with Airtable’s API a breeze:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install airtable
+pip install requests
+pip install psycopg2-binary
+</code></pre></div></div>
 
-<p>Now, we’ll add the main logic to our script (comments included):</p>
+<p>A quick overview:</p>
+
+<ul>
+  <li><strong>airtable</strong> — this package makes communicating with Airtable’s API a breeze.</li>
+  <li><strong>requests</strong> — this package is necessary in order for the <strong>airtable</strong> package to work properly.</li>
+  <li><strong>psycopg2-binary</strong> — this package is essential to connect to our PostgreSQL database.</li>
+</ul>
+
+<p>Now, we’ll need to obtain an API token from Airtable:</p>
+
+<ol>
+  <li>Navigate to your <a href="https://airtable.com/account">account settings</a>.</li>
+  <li>Click <strong>Generate API Key</strong>.</li>
+  <li>Save this API key for use in our script.</li>
+</ol>
+
+<p>Let’s add the main logic to our script (comments included):</p>
 
 <p># more details here</p>
 
-<p>Our last step before moving on to deployment is to specify the requirements.txt file in the root of the project folder. This text file needs to contain all relevant Python packages Airplane should install before running the script. In our case, the text file will only contain one line:</p>
+<p>Our last step before moving on to deployment is to specify the <strong>requirements.txt</strong> file in the root of the project folder. This text file needs to contain all relevant Python packages Airplane should install before running the script. In our case, the text file will look like this:</p>
 
-<h2 id="deploying-code-to-airplane-via-airplanes-cli">Deploying code to Airplane via Airplane’s CLI</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>airtable
+requests
+psycopg2-binary
+</code></pre></div></div>
+
+<h2 id="deploying-to-airplane">Deploying code to Airplane via Airplane’s CLI</h2>
 
 <p>Great job! Now that we’ve put together the project files, we can push the script to Airplane via Airplane’s CLI:</p>
 
-<h2 id="scheduling-a-recurring-task-in-airplane">Scheduling a recurring task in Airplane</h2>
+<h2 id="scheduling-a-task">Scheduling a recurring task in Airplane</h2>
 
-<p>Now that we’ve deployed our script to Airplane’s task, we can now assign a schedule to run the task at a specific interval. For simplicity, we’ll assign a daily schedule:</p>
+<p>Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:</p>
 
 <p>The fact that you have the option to specify the interval in UNIX cron format is also a plus.</p>
 
-<p>For your reference, the following is the completed code repository containing the relevant project files:</p>
+<p>For your reference, the following is the completed code repository containing all relevant project files:</p>
 
 <p>Airplane does an excellent job at managing and deploying Python scripts to the cloud, and it takes less than 5 minutes to be up and running. For a more in-depth look at Airplane’s capabilities, please take a look at their <a href="https://docs.airplane.dev/getting-started/quickstart-guide">official quick-start guide</a>.</p>
 
@@ -365,12 +390,12 @@ into the {body} of the default.hbs template -->
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=How+To+Schedule+Recurring+Python+Scripts+in+the+Cloud+With+Airplane%E2%80%99s+Task-Scheduling&amp;url=http://localhost:4000 /airplane-scheduling"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=How+To+Schedule+Recurring+Python+Scripts+in+the+Cloud+With+Airplane%E2%80%99s+Task-Scheduling&amp;url=http://localhost:4000 /airplane-task-scheduling"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/airplane-scheduling"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/airplane-task-scheduling"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 

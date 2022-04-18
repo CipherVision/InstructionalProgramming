@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-17T01:46:24-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Instructional Programming</title><subtitle>Your go-to for daily programming advice!</subtitle><entry><title type="html">How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling</title><link href="http://localhost:4000/airplane-scheduling" rel="alternate" type="text/html" title="How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling" /><published>2022-04-06T00:00:00-05:00</published><updated>2022-04-06T00:00:00-05:00</updated><id>http://localhost:4000/airplane-scheduling</id><content type="html" xml:base="http://localhost:4000/airplane-scheduling">&lt;p&gt;Python is one of the &lt;a href=&quot;https://www.jetbrains.com/lp/devecosystem-2021/&quot;&gt;fastest-growing programming languages of 2021&lt;/a&gt;, and it&apos;s no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. &lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-04-17T23:37:50-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Instructional Programming</title><subtitle>Your go-to for daily programming advice!</subtitle><entry><title type="html">How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling</title><link href="http://localhost:4000/airplane-task-scheduling" rel="alternate" type="text/html" title="How To Schedule Recurring Python Scripts in the Cloud With Airplane’s Task-Scheduling" /><published>2022-04-06T00:00:00-05:00</published><updated>2022-04-06T00:00:00-05:00</updated><id>http://localhost:4000/airplane-task-scheduling</id><content type="html" xml:base="http://localhost:4000/airplane-task-scheduling">&lt;p&gt;Python is one of the &lt;a href=&quot;https://www.jetbrains.com/lp/devecosystem-2021/&quot;&gt;fastest-growing programming languages of 2021&lt;/a&gt;, and it&apos;s no wonder: it’s ease-of-use and versatility makes it a great choice for any sized project. &lt;/p&gt;
 &lt;p&gt;One of its many use-cases are data extraction and ETL processes. A pain point often encountered is the management of recurring Python scripts outside the local system, i.e. cron tasks; I’ve yet to come across a cloud-based solution that makes the deployment and management of Python scripts an easy process.&lt;/p&gt;
 
 &lt;p&gt;That is, until now:&lt;/p&gt;
@@ -13,32 +13,33 @@
 &lt;p&gt;In today’s guide, we’ll be covering the following topics:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Setting up a PostgreSQL database&lt;/li&gt;
-  &lt;li&gt;Setting up a task in Airplane&lt;/li&gt;
-  &lt;li&gt;Pushing PostgreSQL data to Airtable&lt;/li&gt;
-  &lt;li&gt;Deploying code to Airplane via Airplane’s CLI&lt;/li&gt;
-  &lt;li&gt;Scheduling a recurring task in Airplane&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#setting-up-postgresql&quot;&gt;Setting up a PostgreSQL database&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#setting-up-a-task&quot;&gt;Setting up a task in Airplane&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#pushing-to-postgresql&quot;&gt;Pushing PostgreSQL data to Airtable&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#deploying-to-airplane&quot;&gt;Deploying code to Airplane via Airplane’s CLI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#scheduling-a-task&quot;&gt;Scheduling a recurring task in Airplane&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;To summarize, we will be creating a Python script that checks a PostgreSQL database for newly-added users and outputs those entries into Airtable; this script will be uploaded to Airplane and then triggered periodically with the help of Airplane’s task-scheduling.&lt;/p&gt;
 
 &lt;p&gt;Let’s get started!&lt;/p&gt;
 
-&lt;h2 id=&quot;setting-up-a-postgresql-database-with-supabase&quot;&gt;Setting up a PostgreSQL database with Supabase&lt;/h2&gt;
+&lt;h2 id=&quot;setting-up-postgresql&quot;&gt;Setting up a PostgreSQL database with Supabase&lt;/h2&gt;
 
 &lt;p&gt;For those unfamiliar, Supabase is an open-source Firebase alternative. What this means is you can create an entire backend with ease, including a PostgreSQL database, authentication, APIs, real-time subscriptions and more. They offer a free-tier, which we will be using today.&lt;/p&gt;
 
-&lt;p&gt;Let’s navigate to Supabase and register for an account:&lt;/p&gt;
+&lt;p&gt;Provided below is a brief how-to on getting started with a PostgreSQL database in Supabase:&lt;/p&gt;
 
-&lt;p&gt;Once registered, click &lt;strong&gt;New Project&lt;/strong&gt; and fill out the required information.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Navigate to Supabase and &lt;a href=&quot;https://app.supabase.io&quot;&gt;connect your GitHub account&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Once registered, click &lt;strong&gt;New Project&lt;/strong&gt; and fill out the required information.&lt;/li&gt;
+  &lt;li&gt;Navigate to the table editor and input dummy data relevant to this guide.&lt;/li&gt;
+  &lt;li&gt;Navigate to the project settings and obtain the credentials of the PostgreSQL database for use in our script later.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;From here, we’ll navigate to the table editor so we can add in data to work with.&lt;/p&gt;
+&lt;h2 id=&quot;setting-up-a-task&quot;&gt;Setting up a task in Airplane&lt;/h2&gt;
 
-&lt;p&gt;Next, we’ll navigate over to the project settings and obtain the credentials of the PostgreSQL database:&lt;/p&gt;
-
-&lt;h2 id=&quot;setting-up-a-task-in-airplane&quot;&gt;Setting up a task in Airplane&lt;/h2&gt;
-
-&lt;p&gt;To get started, you’ll need to register for an account, if you haven’t already: this can be a Google account, GitHub account or just regular email.&lt;/p&gt;
+&lt;p&gt;To get started, you’ll need to &lt;a href=&quot;https://app.airplane.dev/signup&quot;&gt;register for an account&lt;/a&gt;, if you haven’t already: this can be either a Google account, or email.&lt;/p&gt;
 
 &lt;p&gt;Now that we have access to the dashboard, we’ll go ahead and click &lt;strong&gt;Create Task&lt;/strong&gt; → &lt;strong&gt;Task&lt;/strong&gt;&lt;/p&gt;
 
@@ -46,35 +47,59 @@
 
 &lt;p&gt;In our case, we will be using &lt;strong&gt;Python&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI:&lt;/p&gt;
+&lt;p&gt;From here, you’re instructed on how to download Airplane’s CLI and the task’s project file. For convenience, the following are OS-specific commands needed to download Airplane’s CLI — these can be run from the Terminal (or Command Prompt, depending on your OS):&lt;/p&gt;
 
 &lt;p&gt;After the CLI has been downloaded, we’ll need to authenticate our account:&lt;/p&gt;
 
 &lt;p&gt;Now, let’s download the task’s project file mentioned:&lt;/p&gt;
 
-&lt;h2 id=&quot;pushing-postgresql-data-to-airtable&quot;&gt;Pushing PostgreSQL data to Airtable&lt;/h2&gt;
+&lt;h2 id=&quot;pushing-to-postgresql&quot;&gt;Pushing PostgreSQL data to Airtable&lt;/h2&gt;
 
-&lt;p&gt;Now that we have the project file downloaded, we can get started. First, we’ll need to obtain an API token from Airtable:&lt;/p&gt;
+&lt;p&gt;Now that we have the project file downloaded, we can get started. First, we’ll need to install a few different Python packages:&lt;/p&gt;
 
-&lt;p&gt;Going back to our script, let’s install the &lt;strong&gt;airtable&lt;/strong&gt; package — this makes communicating with Airtable’s API a breeze:&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install airtable
+pip install requests
+pip install psycopg2-binary
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now, we’ll add the main logic to our script (comments included):&lt;/p&gt;
+&lt;p&gt;A quick overview:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;airtable&lt;/strong&gt; — this package makes communicating with Airtable’s API a breeze.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;requests&lt;/strong&gt; — this package is necessary in order for the &lt;strong&gt;airtable&lt;/strong&gt; package to work properly.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;psycopg2-binary&lt;/strong&gt; — this package is essential to connect to our PostgreSQL database.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now, we’ll need to obtain an API token from Airtable:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Navigate to your &lt;a href=&quot;https://airtable.com/account&quot;&gt;account settings&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Click &lt;strong&gt;Generate API Key&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;Save this API key for use in our script.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Let’s add the main logic to our script (comments included):&lt;/p&gt;
 
 &lt;p&gt;# more details here&lt;/p&gt;
 
-&lt;p&gt;Our last step before moving on to deployment is to specify the requirements.txt file in the root of the project folder. This text file needs to contain all relevant Python packages Airplane should install before running the script. In our case, the text file will only contain one line:&lt;/p&gt;
+&lt;p&gt;Our last step before moving on to deployment is to specify the &lt;strong&gt;requirements.txt&lt;/strong&gt; file in the root of the project folder. This text file needs to contain all relevant Python packages Airplane should install before running the script. In our case, the text file will look like this:&lt;/p&gt;
 
-&lt;h2 id=&quot;deploying-code-to-airplane-via-airplanes-cli&quot;&gt;Deploying code to Airplane via Airplane’s CLI&lt;/h2&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;airtable
+requests
+psycopg2-binary
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;deploying-to-airplane&quot;&gt;Deploying code to Airplane via Airplane’s CLI&lt;/h2&gt;
 
 &lt;p&gt;Great job! Now that we’ve put together the project files, we can push the script to Airplane via Airplane’s CLI:&lt;/p&gt;
 
-&lt;h2 id=&quot;scheduling-a-recurring-task-in-airplane&quot;&gt;Scheduling a recurring task in Airplane&lt;/h2&gt;
+&lt;h2 id=&quot;scheduling-a-task&quot;&gt;Scheduling a recurring task in Airplane&lt;/h2&gt;
 
-&lt;p&gt;Now that we’ve deployed our script to Airplane’s task, we can now assign a schedule to run the task at a specific interval. For simplicity, we’ll assign a daily schedule:&lt;/p&gt;
+&lt;p&gt;Now that we’ve deployed our script to Airplane, we can assign a schedule to run the task at a specific interval. For simplicity, we’ll choose a daily schedule:&lt;/p&gt;
 
 &lt;p&gt;The fact that you have the option to specify the interval in UNIX cron format is also a plus.&lt;/p&gt;
 
-&lt;p&gt;For your reference, the following is the completed code repository containing the relevant project files:&lt;/p&gt;
+&lt;p&gt;For your reference, the following is the completed code repository containing all relevant project files:&lt;/p&gt;
 
 &lt;p&gt;Airplane does an excellent job at managing and deploying Python scripts to the cloud, and it takes less than 5 minutes to be up and running. For a more in-depth look at Airplane’s capabilities, please take a look at their &lt;a href=&quot;https://docs.airplane.dev/getting-started/quickstart-guide&quot;&gt;official quick-start guide&lt;/a&gt;.&lt;/p&gt;
 
